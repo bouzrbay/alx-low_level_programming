@@ -1,5 +1,5 @@
 #include "main.h"
-0;276;0c#include <stdio.h>
+#include <stdio.h>
 
 int check_prime(int n, int i);
 
