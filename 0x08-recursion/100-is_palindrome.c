@@ -6,7 +6,7 @@
  *
  *@s: input string
  *
- *Return: 0 or 1
+ *Return: 1 if a string is a palindrome and 0 if not
  *
  */
 
