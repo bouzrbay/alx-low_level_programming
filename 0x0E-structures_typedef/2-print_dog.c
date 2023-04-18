@@ -3,9 +3,9 @@
 #include <stdlib.h>
 
 /**
- *print_dog: ...
+ * print_dog - Prints all the data of the dog
  *
- *@d: ...
+ *@d: A dog structure
  *
  *Return: Nothing
  */
