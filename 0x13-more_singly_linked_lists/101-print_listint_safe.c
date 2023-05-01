@@ -11,24 +11,39 @@
 
 size_t looped_listint(const listint_t *head)
 {
-const listint_t *slow = head, *fast = head;
-size_t count = 0;
+const listint_t *slow, *fast;
+size_t count = 1;
 
-if (!head)
+if (head == NULL || head->next == NULL)
 return (0);
 
-while (fast && fast->next)
+slow = head->next;
+fast = (head->next)->next;
+
+while (fast)
 {
-slow = slow->next;
-fast = fast->next->next;
 if (slow == fast)
 {
+slow = head;
+
 do {
 count++;
 slow = slow->next;
+fast = fast->next;
 } while (slow != fast);
+
+slow = slow->next;
+while (slow != fast)
+{
+count++;
+slow = slow->next;
+}
+
 return (count);
 }
+
+slow = slow->next;
+fast = (fast->next)->next;
 }
 
 return (0);
