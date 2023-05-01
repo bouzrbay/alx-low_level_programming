@@ -34,11 +34,10 @@ new_node->next = *head;
 return (new_node);
 }
 
-for (i = 0; i < idx && temp != NULL; i++)
+for (i = 0; temp && i < idx; i++)
 {
 if (i == idx - 1)
 {
-temp = temp->next;
 new_node->next = temp->next;
 temp->next = new_node;
 
