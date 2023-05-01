@@ -18,8 +18,8 @@ while (current != NULL)
 {
 
 printf("%d\n", current->n);
-current = current->next;
 count++;
+current = current->next;
 }
 
 return (count);
