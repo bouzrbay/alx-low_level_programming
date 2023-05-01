@@ -28,7 +28,11 @@ new_node->n = n;
 new_node->next = NULL;
  
 if (idx == 0)
-return (add_nodeint_end(head, n));
+{
+new_node->next = *head;
+*head = new_node;
+return (new_node);
+}
 
 for (i = 0; i < idx && temp != NULL; i++)
 {
