@@ -11,26 +11,30 @@
 size_t free_listint_safe(listint_t **h)
 {
 
-listint_t *current, *tmp;
+listint_t *current;
+int tmp;
 size_t count = 0;
 
-if (h == NULL)
-exit(98);
+if (!h || !*h)
+return (0);
 
 current = *h;
-
-while (current != NULL)
+while (*h)
 {
-tmp = current;
-current = current->next;
-free(tmp);
+tmp = *h - (*h)->next;
 
+if (tmp > 0)
+{
+current = (*h)->next;
+free(*h);
+*h = current;
 count++;
+}
 
-if (current != NULL && current >= tmp)
+else
 {
-printf("-> [%p] %d\n", (void *)current, current->n);
-free(current);
+free(*h);
+*h = NULL;
 count++;
 break;
 }
