@@ -23,30 +23,23 @@ idx = (head->next)->next;
 
 while (idx)
 {
-
 if (slow == idx)
 {
 slow = idx;
-
 while (slow != idx)
 {
 current++;
-
 slow = slow->next;
 idx = idx->next;
 }
-
 slow = slow->next;
-
 while (slow != idx)
 {
 current++;
 slow = slow->next;
 }
-
 return (current);
 }
-
 slow = slow->next;
 idx = (idx->next)->next;
 }
