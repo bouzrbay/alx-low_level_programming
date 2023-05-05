@@ -12,7 +12,7 @@ void print_binary(unsigned long int n)
 int i, idx = 0;
 unsigned long int mask;
 
-for(i = 63; i >= 0; i--)
+for (i = 63; i >= 0; i--)
 {
 mask = n >> i;
 if (mask & 1)
