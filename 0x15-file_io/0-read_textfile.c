@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- *ssize_t read_textfile - ...
+ *read_textfile - ...
  *
  *@filename:...
  *@letters: ...
@@ -32,8 +32,8 @@ return (0);
 
 fread = read(fd, buf, letters);
 fwrite = write(STDOUT_FILENO, buf, fread);
- 
+
 free(buf);
 close(fd);
 return (fwrite);
-} 
+}

@@ -3,13 +3,12 @@
 /**
  *error_file - ...
  *
- *@file_from: ...
- *@file_to: ...
+ *@fd_from: ...
+ *@fd_to: ...
  *@argv: ...
  *
  */
 
-#define BUFFER_SIZE 1024
 
 void error_file(int fd_from, int fd_to, char *argv[])
 {
@@ -32,7 +31,7 @@ exit(99);
  *
  * @argc: number of arguments.
  * @argv: arguments vector.
- * 
+ *
  *Return: ...
  */
 int main(int argc, char *argv[])
@@ -53,7 +52,7 @@ exit(97);
 
 bytes_read = 1024;
 do {
-bytes_read = read(fd_from, buffer, BUFFER_SIZE);
+bytes_read = read(fd_from, buffer, 1024);
 if (bytes_read == -1)
 error_file(-1, 0, argv);
 
