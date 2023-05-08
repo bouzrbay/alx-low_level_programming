@@ -3,23 +3,23 @@
 /**
  *error_file - ...
  *
- *@fd_from: ...
- *@fd_to: ...
+ *@file_from: ...
+ *@file_to: ...
  *@argv: ...
  *
  */
 
 
-void error_file(int fd_from, int fd_to, char *argv[])
+void error_file(int file_from, int file_to, char *argv[])
 {
 
-if (fd_from == -1)
+if (file_from == -1)
 {
 dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 exit(98);
 }
 
-if (fd_to == -1)
+if (file_to == -1)
 {
 dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 exit(99);
