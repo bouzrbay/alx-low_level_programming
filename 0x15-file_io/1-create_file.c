@@ -27,7 +27,7 @@ if (fd == -1)
 return (-1);
 }
 
-if (text_content)
+if (!text_content)
 {
 text_content = "";
 }
