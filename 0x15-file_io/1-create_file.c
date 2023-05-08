@@ -27,19 +27,18 @@ if (fd == -1)
 return (-1);
 }
 
-if (!text_content)
+if (text_content)
 {
 text_content = "";
 }
 
 for (content_len = 0; text_content[content_len]; content_len++)
-{
+;
 bytes_written = write(fd, text_content, content_len);
 
 if (bytes_written == -1)
 {
 return (-1);
-}
 }
 
 close(fd);

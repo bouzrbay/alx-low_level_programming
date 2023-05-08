@@ -29,7 +29,7 @@ return (-1);
 if (text_content)
 {
 for (content_len = 0; text_content[content_len]; content_len++)
-  ;
+;
 bytes_written = write(fd, text_content, content_len);
 
 if (bytes_written == -1)
