@@ -38,11 +38,11 @@ int main(int argc, char *argv[])
 {
 
 char buffer[1024];
-int fd_from = open(argv[1], O_RDONLY);
-int fd_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
+int file_from = open(argv[1], O_RDONLY);
+int file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 int errorclose;
 ssize_t bytes_read, bytes_written;
-error_file(fd_from, fd_to, argv);
+error_file(file_from, file_to, argv);
 
 if (argc != 3)
 {
@@ -52,26 +52,26 @@ exit(97);
 
 bytes_read = 1024;
 do {
-bytes_read = read(fd_from, buffer, 1024);
+bytes_read = read(file_from, buffer, bytes_read);
 if (bytes_read == -1)
 error_file(-1, 0, argv);
 
-bytes_written = write(fd_to, buffer, bytes_read);
+bytes_written = write(file_to, buffer, bytes_read);
 if (bytes_written == -1)
 error_file(0, -1, argv);
 
 } while (bytes_read == 1024);
 
-errorclose = close(fd_from);
+errorclose = close(file_from);
 if (errorclose == -1)
 {
-dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
+dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
 exit(100);
 }
-errorclose = close(fd_to);
+errorclose = close(file_to);
 if (errorclose == -1)
 {
-dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
+dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to);
 exit(100);
 }
 
